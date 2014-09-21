@@ -1,7 +1,7 @@
 body {
     margin: 0px;
     padding: 0px;
-    margin-bottom: 30px;
+    padding-bottom: 30px;
 }
 
 html {
@@ -10,8 +10,8 @@ html {
 }
 
 #hook {
-    background-image: url("diagmonds.png");
-    color: #FFFFFF;
+    background-image: url("/graphics/diagmonds.png");
+    color:#FFF;
 
     /*Box*/
     min-height: 500px;
@@ -36,16 +36,32 @@ html {
 }
 
 #footer {
-    font-size: 10px;
     background-color: #F0F0F0;
+
+    /*Dimensions*/
+    width: 100%;
+    height: 30px;
+
+    /*Bottom of page*/
     position: absolute;
     bottom: 0px;
-    height: 30px;
-    width: 100%;
 }
 
 #newFileNotes {
     size: 100%;
     height: 110px;
     resize: none;
+}
+
+#content {
+    width: 700px;
+    margin: 0 auto;
+}
+
+#donateMessage {
+    margin-top: 8px;
+
+    /*Font*/
+    font-size: 10px;
+    color: #777;
 }
