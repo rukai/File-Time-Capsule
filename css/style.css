@@ -1,6 +1,12 @@
 body {
     margin: 0px;
     padding: 0px;
+    margin-bottom: 30px;
+}
+
+html {
+    position: relative;
+    min-height: 100%;
 }
 
 #hook {
@@ -35,10 +41,11 @@ body {
     position: absolute;
     bottom: 0px;
     height: 30px;
+    width: 100%;
 }
 
 #newFileNotes {
     size: 100%;
-    height:110px;
+    height: 110px;
     resize: none;
 }
