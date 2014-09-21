@@ -59,6 +59,7 @@ html {
 }
 
 #donateMessage {
+    margin: 0px;
     margin-top: 8px;
 
     /*Font*/
