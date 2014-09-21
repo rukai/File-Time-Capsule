@@ -1,17 +1,22 @@
 #!/usr/bin/env python3
+
 import tornado.ioloop
 import tornado.web
 
-from fileaway.handlers import *
+from backend.handlers import *
 
 def run():
-    application = tornado.web.Application([
-        (r"/", MainHandler),
-        (r"/hub", HubHandler),
-        (r"/about", AboutHandler),
-        (r"/css/(.+)", tornado.web.StaticFileHandler, {"path": "./css"}), # check the file access this gives
-        (r"/js/(.+)", tornado.web.StaticFileHandler, {"path": "./js"}),
-        ])
+    application = tornado.web.Application(
+        [
+            (r"/", MainHandler),
+            (r"/hub", HubHandler),
+            (r"/about", AboutHandler),
+            (r"/css/(.+)", tornado.web.StaticFileHandler, {"path": "./css"}), # check the file access this gives
+            (r"/js/(.+)", tornado.web.StaticFileHandler, {"path": "./js"}),
+            (r"/graphics/(.+)", tornado.web.StaticFileHandler, {"path": "./graphics"}),
+            ],
+        template_path="templates/",
+        )
     application.listen(8080)
     tornado.ioloop.IOLoop.instance().start()
 
