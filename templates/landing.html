@@ -1,0 +1,26 @@
+{% extends base.html %}
+
+{% block content %}
+<div id="hook" class="jumbotron">
+    <div id="subHook">
+        <div id="tagline">
+            <h1>Disable those distracting files!</h1>
+            <p>Upload a file which is made available again, only after the designated date and time is reached.</p>
+        </div>
+        <div id="newFile">
+            <form name="newFile" role="form">
+                <label for="file">File:</label><br/>
+                <input type="file" name="file"/>
+
+                <label for="date">Date returned:</label><br/>
+                <input type="date" name="datetime-local" class="form-control"/>
+
+                <label for="notes">Optional notes:</label><br/>
+                <textarea type="textbox" form="newFile" class="form-control" id="newFileNotes" name="notes"></textarea><br/>
+
+                <input type="submit" value="Submit" class="btn btn-success btn-lg"/>
+            </form>
+        </div>
+    </div><!--subHook-->
+</div><!--hook-->
+{% end %}
