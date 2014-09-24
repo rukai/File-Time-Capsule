@@ -8,6 +8,8 @@
         <link rel="shortcut icon" href="/graphics/favicon.ico">
         <script src="js/jquery-2.1.1.min.js"></script>
         <script src="js/bootstrap.min.js"></script>
+        {% block head %} {% end %}
+
         {% if page == "Root" %} 
         <title>File Away</title>
         {% else %}
@@ -32,7 +34,8 @@
 
         <div id="footer">
             <div class="container">
-                <p id="donateMessage">Donate BTC: 181jWb6py8CrUmFFqQ7ewRrNe4f3K4zhhG</p>
+                <p id="donateMessage">Donate BTC: <a>181jWb6py8CrUmFFqQ7ewRrNe4f3K4zhhG</a></p>
+                <p id="feedbackMessage">Feedback: <a>feedback@foobar.com</a></p>
             </div>
         </div>
     </body>

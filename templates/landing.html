@@ -1,5 +1,9 @@
 {% extends base.html %}
 
+{% block head %}
+<link rel="stylesheet" href="css/landing.css"/>
+{% end %}
+
 {% block content %}
 <div id="hook" class="jumbotron">
     <div id="subHook">
@@ -8,7 +12,7 @@
             <p>Upload a file which is made available again, only after the designated date and time is reached.</p>
         </div>
         <div id="newFile">
-            <form name="newFile" role="form">
+            <form name="newFile" role="form" method="post" action="createNewFile">
                 <label for="file">File:</label><br/>
                 <input type="file" name="file"/>
 
@@ -16,7 +20,7 @@
                 <input type="date" name="datetime-local" class="form-control"/>
 
                 <label for="notes">Optional notes:</label><br/>
-                <textarea type="textbox" form="newFile" class="form-control" id="newFileNotes" name="notes"></textarea><br/>
+                <textarea form="newFile" class="form-control" id="newFileNotes" name="notes" placeholder="To remind you what it is."></textarea><br/>
 
                 <input type="submit" value="Submit" class="btn btn-success btn-lg"/>
             </form>

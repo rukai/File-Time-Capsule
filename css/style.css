@@ -10,12 +10,13 @@ html {
 }
 
 #hook {
-    background-image: url("/graphics/diagmonds.png");
     color:#FFF;
+    background-color:transparent;
 
     /*Box*/
     min-height: 500px;
     margin: 0px;
+    margin-top:120px;
 }
 
 #subHook {
@@ -61,6 +62,17 @@ html {
 #donateMessage {
     margin: 0px;
     margin-top: 8px;
+    float: right;
+
+    /*Font*/
+    font-size: 10px;
+    color: #777;
+}
+
+#feedbackMessage {
+    margin: 0px;
+    margin-top: 8px;
+    float: left;
 
     /*Font*/
     font-size: 10px;
