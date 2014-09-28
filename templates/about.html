@@ -1,9 +1,18 @@
+{#
+Copyright 2014 Lucas Kent
+Licenced under the GNU GPL V3
+#}
+
 {% extends base.html %}
+
+{% block head %}
+<title>About | File Away</title>
+{% end %}
 
 {% block content %}
 <div id="content" class="container">
     <h1>About</h1>
-    <p>File Away is a simple service that takes an uploaded file and refuses to give it back until the time entered has passed. Files are restricted to 10MB.</p>
+    <p class="lead">File Away is a simple service that takes an uploaded file and refuses to give it back until the time entered has passed. Files are restricted to 10MB.</p>
 
     <h2>Uses</h2>
     <p>
