@@ -4,7 +4,7 @@ Licenced under the GNU GPL V3
 */
 
 function validateForm(){
-    return validateUsername && validatePassword();
+    return validateUsername() && validatePassword();
 }
 
 /*Check a username is entered*/
