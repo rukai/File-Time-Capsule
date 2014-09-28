@@ -22,6 +22,12 @@ html {
 .input-message{
     display: inline;
     visibility: hidden;
+    margin-bottom:0px;
+}
+
+.input-label,
+.input-message{
+    margin-top:7px;
 }
 
 #hook {

@@ -17,6 +17,7 @@ def run():
             (r"/css/(.+)", tornado.web.StaticFileHandler, {"path": "./css"}), # check the file access this gives
             (r"/js/(.+)", tornado.web.StaticFileHandler, {"path": "./js"}),
             (r"/graphics/(.+)", tornado.web.StaticFileHandler, {"path": "./graphics"}),
+            (r"/fonts/(.+)", tornado.web.StaticFileHandler, {"path": "./fonts"}),
             ],
         template_path="templates/",
         )
