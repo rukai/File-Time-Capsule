@@ -1,0 +1,19 @@
+{#
+Copyright 2014 Lucas Kent
+Licenced under the GNU GPL V3
+#}
+
+{% extends base.html %}
+
+{% block head %}
+<title>{{ filename }} | File Away</title>
+{% end %}
+
+{% block content %}
+<div id="content" class="container">
+    <h1>{{ filename }}</h1>
+    <p class="lead">Description! Lorem ipsum dolar sit amet</p>
+    <a class="text-info">Get the file here!</a><br/>
+    <a class="text-danger">Delete this file.</a>
+</div>
+{% end %}

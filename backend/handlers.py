@@ -22,3 +22,7 @@ class LoginHandler(tornado.web.RequestHandler):
 class SignupHandler(tornado.web.RequestHandler):
     def get(self):
         self.render("signup.html", page="Signup")
+
+class FilePageHandler(tornado.web.RequestHandler):
+    def get(self, requestedFile):
+        self.render("file.html", page="File", filename=requestedFile)

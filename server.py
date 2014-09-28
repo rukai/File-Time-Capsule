@@ -14,6 +14,7 @@ def run():
             (r"/about", AboutHandler),
             (r"/login", LoginHandler),
             (r"/signup", SignupHandler),
+            (r"/file/(.*)", FilePageHandler),
             (r"/css/(.+)", tornado.web.StaticFileHandler, {"path": "./css"}), # check the file access this gives
             (r"/js/(.+)", tornado.web.StaticFileHandler, {"path": "./js"}),
             (r"/graphics/(.+)", tornado.web.StaticFileHandler, {"path": "./graphics"}),
