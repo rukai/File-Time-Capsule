@@ -1,4 +1,8 @@
 <!DOCTYPE html>
+<!--
+Copyright 2014 Lucas Kent
+Licenced under the GNU GPL V3
+-->
 <html>
     <head>
         <meta charset="utf-8"/>
@@ -9,22 +13,16 @@
         <script src="js/jquery-2.1.1.min.js"></script>
         <script src="js/bootstrap.min.js"></script>
         {% block head %} {% end %}
-
-        {% if page == "Root" %} 
-        <title>File Away</title>
-        {% else %}
-        <title> {% raw page %} | File Away</title>
-        {% end %}
     </head>
 
     <body>
         <div id="header">
-            <div class="navbar navbar-default" style="margin:0px"> 
+            <div class="navbar navbar-default navbar-static-top" style="margin:0px"> 
                 <div class="container">
                     <ul class="nav navbar-nav" role="navigation">
-                        <li {% if page == "Root" %} class="active" {% end %}><a href="/">File Away</a></li>
-                        <li {% if page == "Hub" %} class="active" {% end %}><a href="/hub">Hub</a></li>
+                        <li {% if page == "Landing" or page == "Hub" %} class="active" {% end %}><a href="/">File Away</a></li>
                         <li {% if page == "About" %} class="active" {% end %}><a href="/about">About</a></li>
+                        <li {% if page == "Login" %} class="active" {% end %}><a href="/login">Login</a></li>
                     </ul>
                 </div>
             </div><!--navbar navbar-default-->

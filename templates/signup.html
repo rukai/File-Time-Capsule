@@ -1,0 +1,30 @@
+{#
+Copyright 2014 Lucas Kent
+Licenced under the GNU GPL V3
+#}
+
+{% extends base.html %}
+
+{% block head %}
+<title>Sign Up | File Away</title>
+{% end %}
+
+{% block content %}
+<div id="content" class="container">
+    <div id="loginBox">
+        <h1>Create an account</h1>
+        <form name="login" method="post" action="/signup">
+            <label for="username">User: </label>
+            <input type="text" name="username" class="form-control"/><br/>
+
+            <label for="username">Password: </label>
+            <input type="text" name="password" class="form-control"/><br/>
+
+            <label for="username">Reenter password: </label>
+            <input type="text" name="password2" class="form-control"/><br/>
+
+            <input type="submit" name="submit" value="Sign up" class="btn btn-success btn-large"/>
+        </form>
+    </div>
+</div>
+{% end %}
