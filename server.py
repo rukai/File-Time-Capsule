@@ -5,12 +5,14 @@
 import tornado.ioloop
 import tornado.web
 
-from backend.handlers import *
+from backend.pageHandlers import *
+from backend.operationHandlers import *
 
 def run():
     application = tornado.web.Application(
         [
             (r"/", RootHandler),
+            (r"/createNewFile", NewFileHandler),
             (r"/about", AboutHandler),
             (r"/login", LoginHandler),
             (r"/signup", SignupHandler),

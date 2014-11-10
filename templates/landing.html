@@ -18,15 +18,15 @@ Licenced under the GNU GPL V3
             <p>Upload a file which is made available again, only after the designated date and time is reached.</p>
         </div>
         <div id="newFile">
-            <form name="newFile" role="form" method="post" action="createNewFile">
+            <form name="newFile" id="newFileForm" role="form" method="post" action="createNewFile" enctype="multipart/form-data">
                 <label for="file">File:</label><br/>
                 <input type="file" name="file"/>
 
                 <label for="date">Date returned:</label><br/>
-                <input type="date" name="datetime-local" class="form-control"/>
+                <input type="date" name="datetime" class="form-control"/>
 
                 <label for="notes">Optional notes:</label><br/>
-                <textarea form="newFile" class="form-control" id="newFileNotes" name="notes" placeholder="To remind you what it is."></textarea><br/>
+                <textarea form="newFileForm" class="form-control" id="newFileNotes" name="notes" placeholder="To remind you what it is."></textarea><br/>
 
                 <input type="submit" value="Submit" class="btn btn-success btn-lg"/>
             </form>
