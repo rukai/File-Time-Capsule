@@ -28,7 +28,6 @@ def getFile(c, ID):
     c.execute("SELECT name, comment, date_accessible, user FROM file WHERE file_ID = ?",  ID)
     return c.fetchone()
 
-
 #closes all DB connections
 def cleanup():
     conn.close()

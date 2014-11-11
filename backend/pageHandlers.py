@@ -32,5 +32,8 @@ class SignupHandler(tornado.web.RequestHandler):
 #Displays a unique page for each file
 class FilePageHandler(tornado.web.RequestHandler):
     def get(self, fileID):
-        fileDetails = DB.getFile(fileID)
-        self.render("file.html", page="File", **fileDetails)
+        try:
+            fileDetails = DB.getFile(fileID)
+            self.render("file.html", page="File", **fileDetails)
+        except TypeError:
+            raise tornado.web.HTTPError(404, "Attempted to access user file that does not exist")
