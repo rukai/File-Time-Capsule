@@ -6,14 +6,20 @@ Licenced under the GNU GPL V3
 {% extends base.html %}
 
 {% block head %}
-<title>{{ filename }} | File Away</title>
+<title>{{ name }} | File Away</title>
 {% end %}
 
 {% block content %}
 <div id="content" class="container">
-    <h1>{{ filename }}</h1>
-    <p class="lead">Description! Lorem ipsum dolar sit amet</p>
+    <h1>{{ name }}</h1>
+    <p class="lead">{{ comment }}</p>
+
+    {% if int(datetime.datetime.now().strftime('%s')) > date_accessible %}
     <a class="text-info">Get the file here!</a><br/>
+    {% end %}
+
+    {% if user != 1 %}
     <a class="text-danger">Delete this file.</a>
+    {% end %}
 </div>
 {% end %}

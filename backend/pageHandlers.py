@@ -31,5 +31,6 @@ class SignupHandler(tornado.web.RequestHandler):
 
 #Displays a unique page for each file
 class FilePageHandler(tornado.web.RequestHandler):
-    def get(self, requestedFile):
-        self.render("file.html", page="File", filename=requestedFile)
+    def get(self, fileID):
+        fileDetails = DB.getFile(fileID)
+        self.render("file.html", page="File", **fileDetails)
