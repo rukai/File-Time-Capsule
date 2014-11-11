@@ -7,11 +7,14 @@ import tornado.web
 from backend import DB
 
 class CustomHandler(tornado.web.RequestHandler):
+    #Displays a 404 page for when a handler cannot find a suitable page to display.
     def write_error(self, status_code, **kwargs):
         if status_code == 404:
-            self.render("base.html", page="404")
+            message = kwargs["exc_info"][1].reason
+            print(message)
+            self.render("404.html", page="404handler", message=message)
         else:
-            #super(tornado.web.RequestHandler, self).write_error(status_code, **kwargs)
+            super(tornado.web.RequestHandler, self).write_error(status_code, **kwargs)
             pass
 
 #Displays the homepage
@@ -44,8 +47,9 @@ class FilePageHandler(CustomHandler):
             fileDetails = DB.getFile(fileID)
             self.render("file.html", page="File", **fileDetails)
         except TypeError:
-            raise tornado.web.HTTPError(404, "Attempted to access user file that does not exist")
+            raise tornado.web.HTTPError(404, reason="The requested page for a user file '/{}' does not exist.".format(fileID))
 
+#Displays a 404 page for any undefined url
 class Error404Handler(CustomHandler):
-    def get(self, pathAttempt):
-        raise tornado.web.HTTPError(404, "File not found")
+    def get(self, path):
+        raise tornado.web.HTTPError(404, reason="The requested page '/{}' does not exist.".format(path))
