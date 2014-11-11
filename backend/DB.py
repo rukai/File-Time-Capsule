@@ -17,7 +17,7 @@ def DBwrapper(func):
 def newFile(c, uploadedFile, date, notes):
     #store file details
     c.execute("""INSERT INTO file (name, comment, date_accessible, user)
-                 VALUES (?, ?, ?, 1)""", [uploadedFile["filename"], notes, int(date)])
+                 VALUES (?, ?, ?, 1)""", (uploadedFile["filename"], notes, int(date)))
 
     #store file
     with open("fileDB/" + str(c.lastrowid), "wb") as newFile:
@@ -25,7 +25,7 @@ def newFile(c, uploadedFile, date, notes):
 
 @DBwrapper
 def getFile(c, ID):
-    c.execute("SELECT name, comment, date_accessible, user FROM file WHERE file_ID = ?",  ID)
+    c.execute("SELECT name, comment, date_accessible, user FROM file WHERE file_ID = ?", (ID,))
     return c.fetchone()
 
 #closes all DB connections

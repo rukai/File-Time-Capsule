@@ -21,6 +21,7 @@ def run():
             (r"/js/(.+)", tornado.web.StaticFileHandler, {"path": "./js"}),
             (r"/graphics/(.+)", tornado.web.StaticFileHandler, {"path": "./graphics"}),
             (r"/fonts/(.+)", tornado.web.StaticFileHandler, {"path": "./fonts"}),
+            (r"/(.*)", Error404Handler),
             ],
         template_path="templates/",
         )
