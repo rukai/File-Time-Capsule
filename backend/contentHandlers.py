@@ -15,8 +15,7 @@ class CustomHandler(tornado.web.RequestHandler):
             print(message)
             self.render("404.html", page="404handler", message=message)
         else:
-            #super(tornado.web.RequestHandler, self).write_error(status_code, **kwargs)
-            pass
+            super().write_error(status_code, **kwargs)
 
 #Displays the homepage
 class RootHandler(CustomHandler):
