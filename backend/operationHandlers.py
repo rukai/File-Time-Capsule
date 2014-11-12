@@ -8,8 +8,13 @@ from backend import DB
 #creates a new file based on data POST'd by client
 class NewFileHandler(tornado.web.RequestHandler):
     def post(self):
+        #organise data
         uploadedFile = self.request.files["file"][0]
         date = self.get_argument("datetime")
         notes = self.get_argument("notes")
         
-        DB.newFile(uploadedFile, date, notes)
+        #store data
+        ID = DB.newFile(uploadedFile, date, notes)
+
+        #redirect to the new files page
+        self.redirect("/filepage/" + ID)

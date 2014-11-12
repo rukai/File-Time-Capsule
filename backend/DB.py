@@ -18,10 +18,12 @@ def newFile(c, uploadedFile, date, notes):
     #store file details
     c.execute("""INSERT INTO file (name, comment, date_accessible, user)
                  VALUES (?, ?, ?, 1)""", (uploadedFile["filename"], notes, int(date)))
+    ID = str(c.lastrowid)
 
     #store file
-    with open("fileDB/" + str(c.lastrowid), "wb") as newFile:
+    with open("fileDB/" + ID, "wb") as newFile:
         newFile.write(uploadedFile["body"])
+    return ID
 
 @DBwrapper
 def getFile(c, ID):
