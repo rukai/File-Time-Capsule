@@ -15,7 +15,9 @@ Licenced under the GNU GPL V3
     <p class="lead">{{ comment }}</p>
 
     {% if int(datetime.datetime.now().strftime('%s')) > date_accessible %}
-    <a class="text-info">Get the file here!</a><br/>
+    <a class="text-info" href="/file/{{ ID }}">Get the file here!</a><br/>
+    {% else %}
+    <p class="text-info">This file will be available on {{ datetime.datetime.fromtimestamp(date_accessible).strftime("%D at %T") }}</p>
     {% end %}
 
     {% if user != 1 %}

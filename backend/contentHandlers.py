@@ -2,6 +2,7 @@
 # Copyright 2014 Lucas Kent
 # Licenced under the GNU GPL V3
 
+import datetime
 import tornado.ioloop
 import tornado.web
 from backend import DB
@@ -14,7 +15,7 @@ class CustomHandler(tornado.web.RequestHandler):
             print(message)
             self.render("404.html", page="404handler", message=message)
         else:
-            super(tornado.web.RequestHandler, self).write_error(status_code, **kwargs)
+            #super(tornado.web.RequestHandler, self).write_error(status_code, **kwargs)
             pass
 
 #Displays the homepage
@@ -45,11 +46,26 @@ class FilePageHandler(CustomHandler):
     def get(self, fileID):
         try:
             fileDetails = DB.getFile(fileID)
-            self.render("file.html", page="File", **fileDetails)
+            self.render("file.html", page="File", ID=fileID, **fileDetails)
         except TypeError:
             raise tornado.web.HTTPError(404, reason="The requested page for a user file '/{}' does not exist.".format(fileID))
+
+class FileHandler(CustomHandler):
+    def get(self, fileID):
+        try:
+            fileDetails = DB.getFile(fileID)
+            self.set_header("Content-Type", "application/octet-stream")
+            self.set_header("Content-Disposition", "attachment; filename={}".format(fileDetails["name"]))
+            if fileDetails["date_accessible"] > int(datetime.datetime.now().strftime("%s")):
+                raise tornado.web.HTTPError(403, reason="This file cannot be accessed yet.")
+            with open("fileDB/" + str(fileID), "br") as fileRead:
+                self.write(fileRead.read())
+        except TypeError:
+            raise tornado.web.HTTPError(404, reason="The requested file '/{}' does not exist".format(fileID))
+
 
 #Displays a 404 page for any undefined url
 class Error404Handler(CustomHandler):
     def get(self, path):
         raise tornado.web.HTTPError(404, reason="The requested page '/{}' does not exist.".format(path))
+

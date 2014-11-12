@@ -5,7 +5,7 @@
 import tornado.ioloop
 import tornado.web
 
-from backend.pageHandlers import *
+from backend.contentHandlers import *
 from backend.operationHandlers import *
 
 def run():
@@ -16,7 +16,8 @@ def run():
             (r"/about", AboutHandler),
             (r"/login", LoginHandler),
             (r"/signup", SignupHandler),
-            (r"/file/(.*)", FilePageHandler),
+            (r"/filepage/(.*)", FilePageHandler),
+            (r"/file/(.*)", FileHandler),
             (r"/css/(.+)", tornado.web.StaticFileHandler, {"path": "./css"}), # check the file access this gives
             (r"/js/(.+)", tornado.web.StaticFileHandler, {"path": "./js"}),
             (r"/graphics/(.+)", tornado.web.StaticFileHandler, {"path": "./graphics"}),
