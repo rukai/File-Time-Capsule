@@ -54,7 +54,7 @@ class FileHandler(CustomHandler):
         try:
             fileDetails = DB.getFile(fileID)
             self.set_header("Content-Type", "application/octet-stream")
-            self.set_header("Content-Disposition", "attachment; filename={}".format(fileDetails["name"]))
+            self.set_header("Content-Disposition", 'attachment; filename="{}"'.format(fileDetails["name"]))
             if fileDetails["date_accessible"] > int(datetime.datetime.now().strftime("%s")):
                 raise tornado.web.HTTPError(403, reason="This file cannot be accessed yet.")
             with open("fileDB/" + str(fileID), "br") as fileRead:
