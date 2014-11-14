@@ -7,6 +7,14 @@ Licenced under the GNU GPL V3
 
 {% block head %}
 <link rel="stylesheet" href="css/landing.css"/>
+<link rel="stylesheet" href="css/bootstrap-datetimepicker.css"/>
+
+<script type="text/javascript" src="js/moment.js"></script>
+<script type="text/javascript" src="js/en-au.js"></script>
+<script type="text/javascript" src="js/bootstrap-datetimepicker.js"></script>
+
+<script type="text/javascript" src="js/newFile.js"></script>
+
 <title>File Away</title>
 {% end %}
 
@@ -18,12 +26,12 @@ Licenced under the GNU GPL V3
             <p>Upload a file which is made available again, only after the designated date and time is reached.</p>
         </div>
         <div id="newFile">
-            <form name="newFile" id="newFileForm" role="form" method="post" action="createNewFile" enctype="multipart/form-data">
+            <form name="newFile" id="newFileForm" role="form" method="post" action="createNewFile" enctype="multipart/form-data" onsubmit="return validateForm()">
                 <label for="file">File:</label><br/>
                 <input type="file" name="file"/>
 
                 <label for="date">Date returned:</label><br/>
-                <input type="date" name="datetime" class="form-control"/>
+                <input type="text" name="datetime" class="form-control" id="datetimeInput"/>
 
                 <label for="notes">Optional notes:</label><br/>
                 <textarea form="newFileForm" class="form-control" id="newFileNotes" name="notes" placeholder="To remind you what it is."></textarea><br/>
