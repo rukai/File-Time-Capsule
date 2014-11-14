@@ -18,6 +18,15 @@ Licenced under the GNU GPL V3
     <a class="text-info" href="/file/{{ ID }}">Get the file here!</a><br/>
     {% else %}
     <p class="text-info">This file will be available on {{ datetime.datetime.fromtimestamp(date_accessible).strftime("%D at %T") }}</p>
+
+    <h2>But wait!</h2>
+    <p>You must:</p>
+    <ol>
+        <li>Save this unique URL. (Bookmark, text file, sticky note etc.) </li>
+        <li>Now delete the file stored on your computer.</li>
+        <li>Work hard at School, University or World Domination.</li>
+        <li>Reclaim your file by visiting this URL again and downloading it.</li>
+    </ol>
     {% end %}
 
     {% if user != 1 %}
