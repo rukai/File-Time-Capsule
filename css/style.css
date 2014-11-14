@@ -108,3 +108,11 @@ html {
 #loginForm {
     padding: 10px 50px;
 }
+
+#tagline {
+    text-align: center;
+}
+
+#tagline h1 {
+    color: #fc7d20;
+}
