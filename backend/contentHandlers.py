@@ -7,8 +7,16 @@ import tornado.ioloop
 import tornado.web
 from backend import DB
 
+def webpageGet(contents):
+    def wrapper(self, *args, **kwargs):
+        self.set_header("X-Frame-Options", "DENY")
+        value = contents(self, *args, **kwargs)
+        return value
+    return wrapper
+
 class CustomHandler(tornado.web.RequestHandler):
     #Displays a 404 page for when a handler cannot find a suitable page to display.
+    @webpageGet
     def write_error(self, status_code, **kwargs):
         if status_code == 404:
             message = kwargs["exc_info"][1].reason
@@ -19,6 +27,7 @@ class CustomHandler(tornado.web.RequestHandler):
 
 #Displays the homepage
 class RootHandler(CustomHandler):
+    @webpageGet
     def get(self):
         if False: #logged in
             self.render("hub.html", page="Hub")
@@ -27,21 +36,25 @@ class RootHandler(CustomHandler):
 
 #Displays the about page
 class AboutHandler(CustomHandler):
+    @webpageGet
     def get(self):
         self.render("about.html", page="About")
 
 #Displays the login page
 class LoginHandler(CustomHandler):
+    @webpageGet
     def get(self):
         self.render("login.html", page="Login")
 
 #Displays the signup page
 class SignupHandler(CustomHandler):
+    @webpageGet
     def get(self):
         self.render("signup.html", page="Signup")
 
 #Displays a unique page for each file
 class FilePageHandler(CustomHandler):
+    @webpageGet
     def get(self, fileID):
         try:
             fileDetails = DB.getFile(fileID)
