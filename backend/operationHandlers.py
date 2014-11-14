@@ -10,7 +10,7 @@ class NewFileHandler(tornado.web.RequestHandler):
     def post(self):
         #organise data
         uploadedFile = self.request.files["file"][0]
-        date = self.get_argument("datetime")
+        date = self.get_argument("datetimeSubmit")
         notes = self.get_argument("notes")
         
         #store data
