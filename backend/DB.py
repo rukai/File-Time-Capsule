@@ -1,4 +1,5 @@
 import sqlite3
+import sys
 
 conn = sqlite3.connect("fileAway.db")
 conn.row_factory = sqlite3.Row
@@ -13,6 +14,8 @@ def DBwrapper(func):
         return r
     return cleanup
 
+#Stores file details in sqlite and file in filesystem
+#All one transaction if either part fails, all fails
 @DBwrapper
 def newFile(c, uploadedFile, date, notes):
     #store file details
@@ -22,7 +25,11 @@ def newFile(c, uploadedFile, date, notes):
 
     #store file
     with open("fileDB/" + ID, "wb") as newFile:
-        newFile.write(uploadedFile["body"])
+        fileData = uploadedFile["body"]
+        #ensure file < 10 MB
+        if sys.getsizeof(fileData) / (1024 ** 2) > 10:
+            raise IOError
+        newFile.write(fileData)
     return ID
 
 @DBwrapper

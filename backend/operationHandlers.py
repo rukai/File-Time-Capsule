@@ -14,7 +14,10 @@ class NewFileHandler(tornado.web.RequestHandler):
         notes = self.get_argument("notes")
         
         #store data
-        ID = DB.newFile(uploadedFile, date, notes)
+        try:
+            ID = DB.newFile(uploadedFile, date, notes)
 
-        #redirect to the new files page
-        self.redirect("/filepage/" + ID)
+            #redirect to the new files page
+            self.redirect("/filepage/" + ID)
+        except IOError:
+            self.redirect("/thatFileIsTooBig") #Maybe handle better someday?
