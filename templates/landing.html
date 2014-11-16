@@ -30,18 +30,33 @@ Licenced under the GNU GPL V3
             <p>Upload a file which is made available again, only after the specified date and time.</p>
         </div>
         <div id="newFile">
-            <form name="newFile" id="newFileForm" role="form" method="post" action="createNewFile" enctype="multipart/form-data" onsubmit="return validateForm()">
-                <label for="file">File:</label><br/>
-                <input type="file" name="file"/>
+            <form name="newFile" id="newFileForm" role="form" method="post" action="createNewFile" enctype="multipart/form-data" onsubmit="return validateForm()"><!--onsubmit run on cancel-->
+                <div class="row">
+                    <label for="file" class="input-label col-md-12">File:</label>
+                    <div class="col-md-7">
+                        <input type="file" id="fileInput" name="file" onchange="validateFile()" style="padding:0px;"/>
+                    </div>  
+                    <p class="text-warning input-message col-md-5" id="file-message">x</p>
+                </div>
 
-                <label for="date">Date returned:</label><br/>
-                <input type="text" name="datetimeInput" class="form-control" id="datetimeInput"/>
+                <div class="row">
+                    <label for="date" class="input-label col-md-12">Date returned:</label>
+                    <div class="col-md-7">
+                        <input type="text" name="datetimeInput" class="form-control" id="datetimeInput" onblur="validateDate()"/>
+                    </div>
+                    <p class="text-warning input-message col-md-5" id="date-message">x</p>
+                </div>
+                
+                <div class="row">
+                    <label for="notes" class="input-label col-md-12">Optional notes:</label>
+                    <div class="col-md-7">
+                        <textarea form="newFileForm" class="form-control" id="newFileNotes" name="notes" placeholder="To remind you what it is." onblur="validateComment()"></textarea>
+                    </div>
+                    <p class="text-warning input-message col-md-5" id="comment-message">x</p>
+                </div>
+
                 <input type="hidden" name="datetimeSubmit" id="datetimeSubmit"/>
-
-                <label for="notes">Optional notes:</label><br/>
-                <textarea form="newFileForm" class="form-control" id="newFileNotes" name="notes" placeholder="To remind you what it is."></textarea><br/>
-
-                <input type="submit" value="Free Yourself" class="btn btn-success btn-lg"/>
+                <input type="submit" value="Free Yourself" class="btn btn-success btn-lg" id="newFileSubmit"/>
             </form>
         </div>
     </div><!--subHook-->

@@ -19,15 +19,18 @@ html {
     float: none;
 }
 
-.input-message{
+.input-message, .jumbotron .input-message{
     display: inline;
     visibility: hidden;
-    margin-bottom:0px;
+    margin-bottom: 0px;
 }
 
-.input-label,
 .input-message{
-    margin-top:7px;
+    margin-top: 7px;
+}
+
+#newFile .input-message{
+    font-size: 14px;
 }
 
 #hook {
@@ -41,7 +44,7 @@ html {
 }
 
 #subHook {
-    width: 900px;
+    width: 850px;
     margin: 0 auto;
     padding-top: 60px;
 }
@@ -49,12 +52,13 @@ html {
 #tagline {
     width: 50%;
     float: left;
+    text-align: center;
 }
 
 #newFile {
-    width: 40%;
+    width: 45%;
     float: left;
-    margin-left: 10%
+    margin-left: 5%
 }
 
 #footer {
@@ -70,7 +74,6 @@ html {
 }
 
 #newFileNotes {
-    size: 100%;
     height: 110px;
     resize: none;
 }
@@ -109,10 +112,14 @@ html {
     padding: 10px 50px;
 }
 
-#tagline {
-    text-align: center;
-}
-
 #tagline h1 {
     color: #fc7d20;
+}
+
+#newFileSubmit {
+    margin-top: 18px;
+}
+
+#fileInput{
+    width:100%;
 }
