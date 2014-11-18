@@ -1,7 +1,7 @@
 import sqlite3
 import sys
 
-conn = sqlite3.connect("fileAway.db")
+conn = sqlite3.connect("fileTimeCapsule.db")
 conn.row_factory = sqlite3.Row
 
 #wrapper for functions that need a database cursor.

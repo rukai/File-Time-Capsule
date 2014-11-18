@@ -1,12 +1,12 @@
 #!/usr/bin/env python3
 # Copyright 2014 Lucas Kent
 # Licenced under the GNU GPL V3
-# Generates a fresh SQLite DB for use with File Away
+# Generates a fresh SQLite DB for use with File Time Capsule
 
 import os
 import sqlite3
 
-dbfile = "fileAway.db"
+dbfile = "fileTimeCapsule.db"
 
 def generateDB():
     try:

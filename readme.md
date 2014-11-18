@@ -1,4 +1,4 @@
-# File Away
+# File Time Capsule
 
 A web service that allows users to upload a file which is made available again, only after the designated date and time is reached.
 
