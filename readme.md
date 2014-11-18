@@ -6,14 +6,14 @@ A web service that allows users to upload a file which is made available again, 
 
 Needs the following packages installed:
 
-*   python3
-*   sqlite
+*   Python3
+*   SQLite (Python3 binding)
+*   Tornado (Python3)
 
 ## Usage
+First run `./generateDB.py`, then run `./server.py`.
 
-Simply run the server.py script. Thats it!
-
-It serves to port 8080 by default so you will need to reroute to port 80 or change some code if you want to run in production.
+It serves to port 8080 by default so you will need to reroute to port 80 or change some code + run under root if you want to run in production.
 
 ## Licence
 
