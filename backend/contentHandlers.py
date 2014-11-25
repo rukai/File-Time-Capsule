@@ -19,9 +19,7 @@ class CustomHandler(tornado.web.RequestHandler):
     @webpageGet
     def write_error(self, status_code, **kwargs):
         if status_code == 404:
-            message = kwargs["exc_info"][1].reason
-            print(message)
-            self.render("404.html", page="404handler", message=message)
+            self.render("404.html", page="404handler")
         else:
             super().write_error(status_code, **kwargs)
 
