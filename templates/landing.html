@@ -6,18 +6,18 @@ Licenced under the GNU GPL V3
 {% extends base.html %}
 
 {% block head %}
-<link rel="stylesheet" href="css/landing.css"/>
-<link rel="stylesheet" href="css/bootstrap-datetimepicker.css"/>
+<link rel="stylesheet" href="/css/landing.css"/>
+<link rel="stylesheet" href="/css/bootstrap-datetimepicker.css"/>
 
-<script type="text/javascript" src="js/moment.js"></script>
-<script type="text/javascript" src="js/en-au.js"></script>
-<script type="text/javascript" src="js/bootstrap-datetimepicker.js"></script>
+<script type="text/javascript" src="/js/moment.js"></script>
+<script type="text/javascript" src="/js/en-au.js"></script>
+<script type="text/javascript" src="/js/bootstrap-datetimepicker.js"></script>
 
-<script type="text/javascript" src="js/form.js"></script>
-<script type="text/javascript" src="js/newFile.js"></script>
+<script type="text/javascript" src="/js/form.js"></script>
+<script type="text/javascript" src="/js/newFile.js"></script>
 <script type="text/javascript">
 //Contains the time this page was loaded in the timezone of the server in unix time
-var serverTime = {{ datetime.datetime().total_seconds()}}
+var serverTime = {{ datetime.datetime.now().strftime("%s")}}
 </script>
 
 <title>File Time Capsule</title>
