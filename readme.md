@@ -13,7 +13,7 @@ Needs the following packages installed:
 ## Usage
 First run `./generateDB.py`, then run `./server.py`.
 
-It serves to port 8080 by default so you will need to reroute to port 80 or change some code + run under root if you want to run in production.
+It serves to port 8080 by default so you will need to reroute from port 80 or change some code + run under root if you want to run in production.
 
 ## Licence
 
